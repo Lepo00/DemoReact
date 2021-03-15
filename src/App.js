@@ -4,18 +4,21 @@ import Post from './Post';
 import Counter from './Counter';
 
 function App() {
+    const [posts, setPosts]= useState([
+        {author:"Mario", desc:"desc1"},
+        {author:"Luigi", desc:"desc2"},
+        {author:"Yoshi", desc:"desc3"},
+        {author:"Peach", desc:"desc4"},
+        {author:"Toad", desc:"desc5"},
+        {author:"Donkey Kong", desc:"desc6"}
+    ])
     return (
         <div>
             <h1>Hello world</h1>
             <div className="row">
-                <Post author="Mario" desc="desc1"/>
-                <Post author="Luigi" desc="desc2"/>
-            </div>
-            <div className="row">
-                <Post author="Yoshi" desc="desc3"/>
-                <Post author="Peach" desc="desc4"/>
-                <Post author="Toad" desc="desc5"/>
-                <Post author="Donkey Kong" desc="desc6"/>
+               {posts.map((post, index)=>(
+                   <Post key={index} author={post.author} desc={post.desc}/>
+               ))}
             </div>
             <Counter/>
         </div> 
