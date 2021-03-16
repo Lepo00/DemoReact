@@ -6,7 +6,7 @@ export default class Form extends Component {
     }
     handleSubmit=(e)=>{
         e.preventDefault();
-        if(this.state.value.trim()=="")
+        if(this.state.value.trim()==="")
             alert("Write something");
         else{
             this.props.submit(this.state.value);
