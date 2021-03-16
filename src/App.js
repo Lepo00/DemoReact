@@ -4,7 +4,7 @@ import Post from './Post';
 import Counter from './Counter';
 
 function App() {
-    const [posts, setPosts]= useState([
+    const [posts]= useState([
         {author:"Mario", desc:"desc1"},
         {author:"Luigi", desc:"desc2"},
         {author:"Yoshi", desc:"desc3"},
