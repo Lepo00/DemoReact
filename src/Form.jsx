@@ -1,32 +1,27 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
 
-export default class Form extends Component {
-    state={
-        value:''
-    }
-    handleSubmit=(e)=>{
+const Form = (props) => {
+    const [value, setValue] = useState('');
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if(this.state.value.trim()==="")
+        if (value.trim() === "")
             alert("Write something");
-        else{
-            this.props.submit(this.state.value);
-            this.setState({
-                value:''
-            })
+        else {
+            props.submit(value);
+            setValue('');
         }
     }
 
-    onChangeText=(e)=>{
-        this.setState({
-            value: e.target.value
-        });
+    const onChangeText = (e) => {
+        setValue(e.target.value);
     }
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input className="input" type="text" value={this.state.value} placeholder="Todo's description" onChange={this.onChangeText}/>
-            </form>
-        )
-    }
+    return (
+        <form onSubmit={handleSubmit}>
+            <input className="input" type="text" value={value} placeholder="Todo's description" onChange={onChangeText} />
+        </form>
+    )
 }
+
+export default Form;
 
