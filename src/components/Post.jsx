@@ -3,16 +3,15 @@ import React, { useEffect, useState } from 'react';
 
 function Post(props) {
     const [post, setPost] = useState({});
-
+    
     useEffect(() =>{
+        const fetchPost = async()=>{
+            const id= props.match.params.id;
+            const post = await (await fetch('https://jsonplaceholder.typicode.com/posts/'+id)).json();
+            setPost(post);
+        }
         fetchPost();
-    }, []);
-
-    const fetchPost = async()=>{
-        const id= props.match.params.id;
-        const post = await (await fetch('https://jsonplaceholder.typicode.com/posts/'+id)).json();
-        setPost(post);
-    }
+    }, [props]);
 
     return (
         <div>
