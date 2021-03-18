@@ -1,12 +1,12 @@
-import React from 'react';
 import '../App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, signin, signout } from '../actions';
+import { RootState } from '../reducers';
 
 
 function About() {
-    const counter = useSelector(state => state.counter);
-    const logged = useSelector(state => state.logged);
+    const counter = useSelector((state: RootState) => state.counter);
+    const logged = useSelector((state: RootState) => state.logged);
     const dispatch = useDispatch();
     return (
         <div className="app">

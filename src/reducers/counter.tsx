@@ -1,6 +1,6 @@
 const initialState = 0;
 
-const CounterReducer = (state = initialState, action) => {
+const CounterReducer = (state = initialState, action: { type: string; value: number; }) => {
     switch (action.type) {
         case 'INCREMENT':
             return state + action.value;

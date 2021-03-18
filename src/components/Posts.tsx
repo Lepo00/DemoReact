@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import Post from '../models/Post';
 
 
-function Post(props) {
-    const [post, setPost] = useState({});
+function Posts(props: { match: { params: { id: any; }; }; }) {
+    const [post, setPost] = useState<Post>({});
     
     useEffect(() =>{
         const fetchPost = async()=>{
@@ -22,4 +23,4 @@ function Post(props) {
     )
 }
 
-export default Post;
+export default Posts;

@@ -1,7 +1,7 @@
 const initialState = false;
 
-const LoggedReducer = (state = initialState, { type, payload }) => {
-    switch (type) {
+const LoggedReducer = (state = initialState, action: { type: string; }) => {
+    switch (action.type) {
         case 'SIGNIN':
             return true;
         case 'SIGNOUT':
